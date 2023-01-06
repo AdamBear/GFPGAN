@@ -95,8 +95,11 @@ class GFPGANer():
         self.gfpgan = self.gfpgan.to(self.device)
 
     @torch.no_grad()
-    def enhance(self, img, has_aligned=False, only_center_face=False, paste_back=True):
+    def enhance(self, img, has_aligned=False, only_center_face=False, paste_back=True, upscale_factor=None):
         self.face_helper.clean_all()
+
+        if upscale_factor is not None:
+            self.face_helper.set_upscale_factor(upscale_factor)
 
         if has_aligned:  # the inputs are already aligned
             img = cv2.resize(img, (512, 512))

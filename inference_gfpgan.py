@@ -41,7 +41,7 @@ def main():
         type=str,
         default='auto',
         help='Image extension. Options: auto | jpg | png, auto means using the same extension as inputs. Default: auto')
-    args = parser.parse_args()
+    # args = parser.parse_args()
 
     args = parser.parse_args()
 
