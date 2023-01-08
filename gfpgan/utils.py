@@ -100,7 +100,7 @@ class GFPGANer():
 
 
     @torch.no_grad()
-    def enhance(self, img, has_aligned=False, only_center_face=False, paste_back=True, weight=0.5, upscale_factor=None):
+    def enhance(self, img, has_aligned=False, only_center_face=False, paste_back=True, weight=0.5, upscale_factor=None, bg_upsampler=None):
         self.face_helper.clean_all()
 
         if upscale_factor is not None:
@@ -138,9 +138,9 @@ class GFPGANer():
 
         if not has_aligned and paste_back:
             # upsample the background
-            if self.bg_upsampler is not None:
+            if bg_upsampler is not None:
                 # Now only support RealESRGAN for upsampling background
-                bg_img = self.bg_upsampler.enhance(img, outscale=upscale_factor)[0]
+                bg_img = bg_upsampler.enhance(img, outscale=upscale_factor)[0]
             else:
                 bg_img = None
 
