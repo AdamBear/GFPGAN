@@ -100,7 +100,8 @@ class GFPGANer():
 
 
     @torch.no_grad()
-    def enhance(self, img, has_aligned=False, only_center_face=False, paste_back=True, weight=0.5, upscale_factor=None, bg_upsampler=None):
+    def enhance(self, img, has_aligned=False, only_center_face=False, paste_back=True, weight=0.5, upscale_factor=None,
+                bg_upsampler=None):
         self.face_helper.clean_all()
 
         if upscale_factor is not None:
