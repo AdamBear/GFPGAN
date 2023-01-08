@@ -140,7 +140,7 @@ class GFPGANer():
             # upsample the background
             if self.bg_upsampler is not None:
                 # Now only support RealESRGAN for upsampling background
-                bg_img = self.bg_upsampler.enhance(img, outscale=self.upscale)[0]
+                bg_img = self.bg_upsampler.enhance(img, outscale=upscale_factor)[0]
             else:
                 bg_img = None
 
